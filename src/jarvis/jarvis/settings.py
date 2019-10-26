@@ -51,6 +51,7 @@ GENERAL_SETTINGS = {
     'user_voice_input': True,  # True: The assistant responds in voice commands,
                                # False: The assistant waiting for text input
     'response_in_speech': True,
+    'wake_up_hotkey': 'windows+shift+a',
 }
 
 # Google API Speech recognition settings

@@ -23,6 +23,8 @@
 import speech_recognition as sr
 import time
 
+import keyboard
+
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
@@ -70,12 +72,11 @@ class Processor:
 
     def run(self):
         start_up()
-        while True:
-            self.skill_controller.wake_up_check()
-            if self.skill_controller.is_assistant_enabled:  # Check if the assistant is waked up
-                self._process()
+        keyboard.add_hotkey(GENERAL_SETTINGS['wake_up_hotkey'], self._process)
+        keyboard.wait()
 
     def _process(self):
+        print('Assistant has woken up')
         self.skill_controller.get_transcript()
         self.skill_controller.get_skills()
         if self.skill_controller.to_execute:
