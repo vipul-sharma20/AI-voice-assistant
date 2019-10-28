@@ -1,9 +1,10 @@
-[![CodeFactor](https://www.codefactor.io/repository/github/ggeop/ai-voice-assistant/badge)](https://www.codefactor.io/repository/github/ggeop/ai-voice-assistant)
-[![Maintainability](https://api.codeclimate.com/v1/badges/8c90305e22186cc2c9d5/maintainability)](https://codeclimate.com/github/ggeop/Python-AI-voice-assistant/maintainability)
+[![CodeFactor](https://www.codefactor.io/repository/github/vipul-sharma20/shizune/badge/master?s=2984725d3f9c8adc31b159e465680421af0461f6)](https://www.codefactor.io/repository/github/vipul-sharma20/shizune/overview/master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 # About
 Jarvis is a voice assistant service in [Python 3.4+](https://www.python.org/downloads/release/python-360/)
 It can understand human speech, talk to user and execute basic commands.
+
+**This is a fork of [ggeop/AI-voice-assistant](https://github.com/ggeop/AI-voice-assistant)**
 
 ## Assistant Skills
 *   **Opens a web page** (e.g 'Jarvis open youtube')
