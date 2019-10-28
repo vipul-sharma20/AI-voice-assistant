@@ -40,4 +40,5 @@ web-cache==1.1.0
 wikipedia==1.4.0
 wolframalpha==3.0.1
 xmltodict==0.12.0
-keyboard==0.13.3
+grpcio-tools==1.24.3
+keyboard==0.13.4
