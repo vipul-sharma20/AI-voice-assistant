@@ -57,10 +57,16 @@ GENERAL_SETTINGS = {
 # Google API Speech recognition settings
 # SpeechRecognition: https://pypi.org/project/SpeechRecognition/2.1.3
 SPEECH_RECOGNITION = {
+    'recognizer': 'vernacular',
     'ambient_duration': 1,  # Time for auto microphone calibration
     'pause_threshold': 1,  # minimum length silence (in seconds) at the end of a sentence
     'energy_threshold': 3000,  # microphone sensitivity, for loud places, the energy level should be up to 4000
-    'dynamic_energy_threshold': True  # For unpredictable noise levels (Suggested to be TRUE)
+    'dynamic_energy_threshold': True,  # For unpredictable noise levels (Suggested to be TRUE)
+    'sample_rate': 8000,
+    'language_code': 'en',
+    'model': 'eng',
+    'max_audio_length': 2,
+    'num_channels': 1,
 }
 
 # SKill analyzer settings
