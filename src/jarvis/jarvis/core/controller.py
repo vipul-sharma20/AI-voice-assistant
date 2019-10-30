@@ -36,9 +36,10 @@ class Controller:
         self.latest_voice_transcript = ''
         self.is_assistant_enabled = False
         self.to_execute = []
-        self.execute_state = {'ready_to_execute': False,
-                              'enable_time': None,
-                              }
+        self.execute_state = {
+            'ready_to_execute': False,
+            'enable_time': None,
+        }
 
     def get_transcript(self):
         """
@@ -66,10 +67,12 @@ class Controller:
         """
         self.get_transcript()
         transcript_words = self.latest_voice_transcript.split()
-        enable_tag = set(transcript_words).intersection(self.control_skills['enable_assistant']['tags'])
+        enable_tag = set(transcript_words).intersection(
+            self.control_skills['enable_assistant']['tags'])
 
         if bool(enable_tag):
-            self.execute_state = self.control_skills['enable_assistant']['skill']()
+            self.execute_state = self.control_skills['enable_assistant'][
+                'skill']()
             self.is_assistant_enabled = True
 
     def _continue_listening(self):
@@ -77,10 +80,12 @@ class Controller:
         Checks if the assistant enable time (triggering time + enable period) has passed.
         return: boolean
         """
-        if datetime.now() > self.execute_state['enable_time'] + timedelta(seconds=self.settings_['enable_period']):
-            self.execute_state = {'ready_to_execute': False,
-                                  'enable_time': None,
-                                  }
+        if datetime.now() > self.execute_state['enable_time'] + timedelta(
+                seconds=self.settings_['enable_period']):
+            self.execute_state = {
+                'ready_to_execute': False,
+                'enable_time': None,
+            }
 
             self.is_assistant_enabled = False
         self.is_assistant_enabled = True
@@ -98,9 +103,9 @@ class SkillController(Controller):
         skill = self.skill_analyzer.extract(self.latest_voice_transcript)
         if skill:
             self.to_execute = {
-                                'voice_transcript': self.latest_voice_transcript,
-                                'skill': skill,
-                                }
+                'voice_transcript': self.latest_voice_transcript,
+                'skill': skill,
+            }
         logging.debug('to_execute : {0}'.format(self.to_execute))
 
     def execute(self):
@@ -115,6 +120,6 @@ class SkillController(Controller):
             else:
                 logging.debug("Not matched skills to execute")
         except Exception as e:
-            logging.debug("Error with the execution of skill with message {0}".format(e))
+            logging.debug(
+                "Error with the execution of skill with message {0}".format(e))
         self.to_execute = {}
-
