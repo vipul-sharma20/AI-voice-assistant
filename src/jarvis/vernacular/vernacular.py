@@ -11,7 +11,7 @@ class KaldiServeClient(object):
     Reference: https://github.com/googleapis/google-cloud-python/blob/3ba1ae73070769854a1f7371305c13752c0374ba/speech/google/cloud/speech_v1/gapic/speech_client.py
     """
 
-    def __init__(self, kaldi_serve_url="13.233.149.109:5016"):
+    def __init__(self, kaldi_serve_url="0.0.0.0:5016"):
         self.channel = grpc.insecure_channel(kaldi_serve_url)
         self._client = KaldiServeStub(self.channel)
 
