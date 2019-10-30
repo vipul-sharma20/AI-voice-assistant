@@ -112,8 +112,6 @@ class BrowserSkills(AssistantSkill):
         :param skill: dict (e.g
         """
         tags = cls._extract_tags(voice_transcript, skill['tags'])
-        print(tags)
-        print(voice_transcript)
         for tag in tags:
             reg_ex = re.search(tag, voice_transcript)
             print(reg_ex)
