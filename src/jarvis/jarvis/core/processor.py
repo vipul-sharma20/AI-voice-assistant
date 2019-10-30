@@ -20,7 +20,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import speech_recognition as sr
 import time
 
 import keyboard
@@ -34,7 +33,7 @@ from jarvis.settings import GENERAL_SETTINGS, ANALYZER, ROOT_LOG_CONF
 from jarvis.skills.skills_registry import CONTROL_SKILLS, SKILLS
 from jarvis.skills.skill_analyzer import SkillAnalyzer
 from jarvis.settings import SPEECH_RECOGNITION
-from jarvis.engines.stt import STTEngine
+from jarvis.engines.stt import STTGoogleEngine, STTVernacularEngine
 from jarvis.engines.tts import TTSEngine
 from jarvis.engines.ttt import TTTEngine
 from jarvis.core.nlp_processor import ResponseCreator
@@ -43,12 +42,7 @@ from jarvis.core.console_manager import ConsoleManager
 
 class Processor:
     def __init__(self):
-        self.input_engine = STTEngine(
-            pause_threshold=SPEECH_RECOGNITION['pause_threshold'],
-            energy_theshold=SPEECH_RECOGNITION['energy_threshold'],
-            ambient_duration=SPEECH_RECOGNITION['ambient_duration'],
-            dynamic_energy_threshold=SPEECH_RECOGNITION['dynamic_energy_threshold'],
-            sr=sr) if GENERAL_SETTINGS['user_voice_input'] else TTTEngine()
+        self.input_engine = STTVernacularEngine()
 
         self.console_manager = ConsoleManager(log_settings=ROOT_LOG_CONF, )
         self.output_engine = TTSEngine(
