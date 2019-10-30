@@ -105,6 +105,30 @@ class BrowserSkills(AssistantSkill):
                 cls.response("I can't find this domain..")
 
     @classmethod
+    def start_chicken_game(cls, voice_transcript, skill):
+        """
+        Starts the chicken game in the browser.
+        :param voice_transcript: string (e.g 'start chicken game')
+        :param skill: dict (e.g
+        """
+        tags = cls._extract_tags(voice_transcript, skill['tags'])
+        print(tags)
+        print(voice_transcript)
+        for tag in tags:
+            reg_ex = re.search(tag, voice_transcript)
+            print(reg_ex)
+            try:
+                if reg_ex:
+                    url = "https://i.imgur.com/fc2hTF2.png"
+                    cls.response('Sure')
+                    subprocess.Popen(["open", url], stdout=subprocess.PIPE, shell=False)
+                    time.sleep(1)
+                    cls.response("I've started the chicken game")
+            except Exception as e:
+                logging.debug(e)
+                cls.response("I can't find this domain..")
+
+    @classmethod
     def tell_me_today_news(cls, **kwargs):
         try:
             news_url = "https://news.google.com/news/rss"

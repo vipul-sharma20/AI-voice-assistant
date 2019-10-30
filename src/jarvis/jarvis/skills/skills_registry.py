@@ -63,7 +63,11 @@ BASIC_SKILLS = {
                              'tags': {'open'},
                              'description': 'Ask me to "open" a domain in the browser e.x open facebook'
                              },
-
+    'start_chicken_game': {'enable': True,
+                          'skill': BrowserSkills.start_chicken_game,
+                          'tags': {'chicken game', 'chicken', 'game'},
+                          'description': 'Ask me to start chicken game e.x "Start chicken game"'
+                         },
     'tell_daily_news': {'enable': True,
                         'skill': BrowserSkills.tell_me_today_news,
                         'tags': {'news', 'today news'},
