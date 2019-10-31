@@ -33,7 +33,7 @@ from jarvis.settings import GENERAL_SETTINGS, ANALYZER, ROOT_LOG_CONF
 from jarvis.skills.skills_registry import CONTROL_SKILLS, SKILLS
 from jarvis.skills.skill_analyzer import SkillAnalyzer
 from jarvis.settings import SPEECH_RECOGNITION
-from jarvis.engines.stt import STTGoogleEngine, STTVernacularEngine
+from jarvis.engines import SPEECH_ENGINES
 from jarvis.engines.tts import TTSEngine
 from jarvis.engines.ttt import TTTEngine
 from jarvis.core.nlp_processor import ResponseCreator
@@ -42,7 +42,7 @@ from jarvis.core.console_manager import ConsoleManager
 
 class Processor:
     def __init__(self):
-        self.input_engine = STTVernacularEngine()
+        self.input_engine = SPEECH_ENGINES[SPEECH_RECOGNITION['recognizer']]()
 
         self.console_manager = ConsoleManager(log_settings=ROOT_LOG_CONF, )
         self.output_engine = TTSEngine(
