@@ -45,7 +45,7 @@ You can easily add a new skill in two steps.
                  'skill': Skills.new_skill,
                  'tags': {'tag1', 'tag2'},
                  'description': 'skill description..'
-                },                
+                },
 ```
 *   Create a new skill package in **skills**
 
